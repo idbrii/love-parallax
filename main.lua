@@ -89,7 +89,7 @@ function love.update(dt)
     local tau = math.pi * 2
     local rotateSpeed = tau * 0.05
     local offsetMoveSpeed = 100
-    
+
     if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
         -- Kill movement while moving layer
         moveSpeed = 0
@@ -184,7 +184,7 @@ end
 function love.draw()
     love.graphics.clear()
     camera:draw(draw_all)
-    
+
     love.graphics.setColor(1, 1, 1, 1)
     love.graphics.printf("Physics: " .. (has_gravity and "Platformer" or "TopDown"), 0,0, 1000)
 
