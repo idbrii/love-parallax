@@ -117,7 +117,7 @@ how the layer is displayed.
 - `dx, dy`: _numbers_. Increment the offset by these values.
 
 
-### layer:draw_tiled(x, y, image, skip_horizontal_tile, skip_vertical_tile)
+### layer:draw_tiled(x, y, image)
 
 Draw an image (or Canvas or Video) tiled using a minimal number of draws. Uses
 inverseTransformPoint so transformations from your camera should ensure only
@@ -125,8 +125,6 @@ visible tiles are drawn.
 
 - `x, y`: _numbers_. Tune the positioning of the image.
 - `image`: _Drawable_. A drawable (Image, Canvas) that provides getDimensions to draw tiled.
-- skip_horizontal_tile: _boolean_. Optional. Whether to skip horizontal and only do vertical tiling.
-- skip_vertical_tile: _boolean_. Optional. Whether to skip vertical and only do horizontal tiling.
 
 - returns: _number_. The number of times the image was drawn.
 

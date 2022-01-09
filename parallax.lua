@@ -33,7 +33,7 @@ end
 -- Call from within your function passed to parallax:draw to infinitely tile a
 -- background image. If you've implemented rotation or resolution independence,
 -- you may want to copy this into your own project to modify as needed.
-function parallax:draw_tiled(x, y, image, skip_horizontal_tile, skip_vertical_tile)
+function parallax:draw_tiled(x, y, image)
     local art_pixels_x,art_pixels_y = image:getDimensions()
     local min_x,min_y = love.graphics.inverseTransformPoint(0,0)
     local max_x,max_y = love.graphics.inverseTransformPoint(love.window.getMode())
@@ -55,10 +55,10 @@ function parallax:draw_tiled(x, y, image, skip_horizontal_tile, skip_vertical_ti
             --~ love.graphics.rectangle('fill', x, y, max_x, 50)
             x = x + art_pixels_x
             count = count + 1
-        until x > max_x or skip_horizontal_tile
+        until x > max_x
         y = y + art_pixels_y
         count = count + 1
-    until y > max_y or skip_vertical_tile
+    until y > max_y
 
     --~ -- DEBUG: Show screen left/right to show we can draw without moving.
     --~ local w,h = 100,2000
