@@ -63,6 +63,10 @@ function love.load()
     camera = gamera.new(0,0,unpack(world_dimensions))
     layers.near = parallax.new(camera, 1.5)
     layers.far = parallax.new(camera, 0.5)
+    layers.bg = parallax.new(camera, 0.25)
+    layers.bg_data = {
+        img = love.graphics.newImage("assets/bg-seamless-icecream.jpg"),
+    }
 end
 
 function love.keyreleased(key)
@@ -173,7 +177,16 @@ local function draw_game(l,t,w,h)
     love.graphics.circle('fill', chaser.x,chaser.y, 7,7)
 end
 
+local function draw_bg_img()
+    -- To fine tune your background image positioning, adjust x,y.
+    -- Here, we offset image to align with edge of world.
+    local x,y = 90,380
+    layers.bg_data.count = layers.bg:draw_tiled(x,y, layers.bg_data.img)
+end
+
 local function draw_all(l,t,w,h)
+    love.graphics.setColor(1,1,1,0.3)
+    layers.bg:draw(draw_bg_img)
     love.graphics.setColor(0,1,1,0.1)
     layers.far:draw(draw_rects)
     draw_game(l,t,w,h)
@@ -188,7 +201,13 @@ function love.draw()
     love.graphics.setColor(1, 1, 1, 1)
     love.graphics.printf("Physics: " .. (has_gravity and "Platformer" or "TopDown"), 0,0, 1000)
 
+    local w,h = love.window.getMode()
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.printf("Tiled image draws: " .. layers.bg_data.count, w - 1000,0, 1000, "right")
+
     local x,y = camera:toScreen(world_dimensions[1]/2,world_dimensions[2]/2)
-    love.graphics.circle("line", x,y, 5,5)
+    love.graphics.circle("fill", x,y, 5,5)
     love.graphics.printf("World Center", x,y, 100, 'center')
+
+    --~ love.graphics.printf("Draw Calls: ".. love.graphics.getStats().drawcalls, w - 1000, h - 20, 1000, "right")
 end
