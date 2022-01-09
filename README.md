@@ -10,6 +10,8 @@ This demo uses [gamera](https://github.com/kikito/gamera) for camera behaviour.
 
 ![parallax-demo](https://user-images.githubusercontent.com/43559/111592963-ae9fae80-8786-11eb-8e08-f7b2fdc9fc93.gif)
 
+[Web Version](https://idbrii.com/love-parallax/demo)
+
 Controls:
 
 * wasd - move player

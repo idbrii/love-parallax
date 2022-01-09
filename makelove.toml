@@ -1,0 +1,27 @@
+# let &l:makeprg='makelove macos win32 win64' | AsyncMake
+
+name = "parallax-demo" # makelove gets the name from conf.lua.
+default_targets = [
+    "lovejs",
+]
+build_directory = "build"
+
+love_files = [
+    "::git-ls-tree::",
+    "-*/.*",
+]
+
+[hooks]
+prebuild = [
+]
+postbuild = [
+    # lovejs testing.
+    "unzip {build_directory}/lovejs/{name}-lovejs.zip -d {build_directory}/lovejs",
+    "start http://127.0.0.1:8000",
+    "python -m http.server 8000 --bind 127.0.0.1 --directory {build_directory}/lovejs/{name}",
+
+]
+
+[lovejs]
+#~ title = ""  # used on the resulting web page, or fallback to window title from conf.lua or project name.
+memory = "20000000"  # starting memory of the webpage (default is 20 MB)
