@@ -6,10 +6,11 @@ Released under the MIT License
 local parallax = {}
 local parallaxMt = {__index = parallax}
 
-function parallax.new(target, scale)
+function parallax.new(target, scale, speed)
     local p = setmetatable({
             target = target,
             scale = scale,
+            speed = speed or 1,
             mode = 'transform',
             offsetX = 0, offsetY = 0,
         }, parallaxMt)
@@ -22,7 +23,7 @@ function parallax:draw(f)
     love.graphics.translate(self.target.w2 + self.offsetX, self.target.h2 + self.offsetY)
     love.graphics.rotate(-self.target.angle)
     love.graphics.scale(self.target.scale * self.scale)
-    love.graphics.translate(-self.target.x, -self.target.y)
+    love.graphics.translate(-self.target.x * self.speed, -self.target.y * self.speed)
 
     f()
 

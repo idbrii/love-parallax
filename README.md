@@ -88,12 +88,13 @@ orientation.
 
 ## Functions
 
-### parallax.new(camera, scale)
+### parallax.new(camera, scale, speed)
 
 Creates a new parallax object.
 
 - `camera`: _table_. A camera object containing x,y (camera position), w2,h2 (half camera width and height), angle (camera rotation), and scale (camera scaling factor). gamera provides all of these.
 - `scale`: _number_. The scale for this layer. Larger numbers look closer and smaller look more distant.
+- `speed`: _number_. Optional. A speed scale for this layer's movement. A number closer to zero makes it move slower (and look more distant) without changing its size.
 
 ### layer:draw(f)
 
