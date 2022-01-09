@@ -65,6 +65,7 @@ function love.load()
     layers.far = parallax.new(camera, 0.5)
     layers.bg = parallax.new(camera, 0.25)
     layers.bg_data = {
+        enabled = true,
         img = love.graphics.newImage("assets/bg-seamless-icecream.jpg"),
     }
 end
@@ -85,6 +86,8 @@ function love.keyreleased(key)
         camera:setScale(loop(camera.scale + 1, 4))
     elseif key == 'm' then
         camera:setScale(camera.scale * 0.5)
+    elseif key == 'b' then
+        layers.bg_data.enabled = not layers.bg_data.enabled
     end
 end
 
@@ -178,6 +181,10 @@ local function draw_game(l,t,w,h)
 end
 
 local function draw_bg_img()
+    if not layers.bg_data.enabled then
+        layers.bg_data.count = 0
+        return
+    end
     -- To fine tune your background image positioning, adjust x,y.
     -- Here, we offset image to align with edge of world.
     local x,y = 90,380

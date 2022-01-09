@@ -20,6 +20,7 @@ Controls:
 * xc - rotate camera
 * p - switch between topdown and platformer physics
 * nm - modify camera scale
+* b - toggle background image
 * escape - quit
 
 
