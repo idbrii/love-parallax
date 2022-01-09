@@ -4,17 +4,17 @@
 
 h1 {
     font-family: arial;
-    color: rgb( 11, 86, 117 );
+    color: rgb( 118, 86, 117 );
+    color: #EEEE00;
 }
 
 body {
-    background-image: url(bg.png);
     background-repeat: no-repeat;
     font-family: arial;
     margin: 0;
     padding: none;
-    background-color: rgb( 154, 205, 237 );
-    color: rgb( 28, 78, 104 );
+    background-color: black;
+    color: #FFFF00;
 }
 
 footer {
@@ -24,20 +24,21 @@ footer {
     position:absolute;
     bottom: 0;
     width: 100%;
+    color: white;
 }
 
 /* Links */
 a {
-    text-decoration: none;
+    text-decoration: underline;
 }
 a:link {
-    color: rgb( 233, 73, 154 );
+    color: #00DDFF;
 }
 a:visited {
-    color: rgb( 110, 30, 71 );
+    color: #00AAFF;
 }
 a:hover {
-    color: rgb( 252, 207, 230 );
+    color: #00FFFF;
 }
 
 /* the canvas *must not* have any border or padding, or mouse coords will be wrong */

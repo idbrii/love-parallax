@@ -17,6 +17,19 @@
       </div>
     </center>
 
+    <!--~ Copied from markdown render on github. -->
+    <div>
+      <p dir="auto">Controls:</p>
+      <ul dir="auto">
+        <li>wasd - move player</li>
+        <li>shift+wasd - adjust far layer offset</li>
+        <li>z - toggle drawing on layers</li>
+        <li>xc - rotate camera</li>
+        <li>p - switch between topdown and platformer physics</li>
+        <li>nm - modify camera scale</li>
+      </ul>
+    </div>
+
     <script type='text/javascript'>
       function goFullScreen(){
           var canvas = document.getElementById("canvas");
@@ -99,7 +112,10 @@
     <script type="text/javascript" src="game.js"></script>
     <script async type="text/javascript" src="love.js" onload="applicationLoad(this)"></script>
     <footer>
-      <p>Built with <a href="https://github.com/Davidobot/love.js">love.js</a> <button onclick="goFullScreen();">Go Fullscreen</button><br>Hint: Reload the page if screen is blank</p>
+      <p >
+        <button onclick="goFullScreen();">Fullscreen</button>
+      </p>
+      <p><a href="https://github.com/idbrii/love-parallax">github</a></p>
     </footer>
   </body>
 </html>
