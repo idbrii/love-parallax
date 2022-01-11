@@ -190,7 +190,7 @@ local function draw_bg_img()
     -- Here, we offset image to align with edge of world.
     if has_gravity then
         love.graphics.clear(0.60, 0.55, 0.41, 1)
-        local x,y = 0, 45
+        local x,y = -400, 45
         love.graphics.setColor(1,1,1,1)
         layers.bg_data.count = layers.bg:draw_tiled_single_axis(x,y, layers.bg_data.img_x, "x")
     else
