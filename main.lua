@@ -208,7 +208,7 @@ function love.draw()
     love.graphics.setColor(1, 1, 1, 1)
     love.graphics.printf("Physics: " .. (has_gravity and "Platformer" or "TopDown"), 0,0, 1000)
 
-    local w,h = love.window.getMode()
+    local w,_ = love.window.getMode()
     love.graphics.setColor(1, 1, 1, 1)
     love.graphics.printf("Tiled image draws: " .. layers.bg_data.count, w - 1000,0, 1000, "right")
 
