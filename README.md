@@ -1,4 +1,5 @@
-[![Lint status
+[![Tested on love2d 11.3+
+](https://img.shields.io/badge/L%F6ve-11.3%2B-pink.svg)](https://love2d.org/) [![Lint status
 ](https://github.com/idbrii/love-parallax/actions/workflows/luacheck.yml/badge.svg?branch=main)
 ](https://github.com/idbrii/love-parallax/actions?query=branch%3Amain)
 
@@ -8,6 +9,8 @@ parallax is a camera utility library for [LÖVE](https://love2d.org) that
 adds parallax scrolling when used with a camera library.
 
 parallax is not itself a camera system!
+
+parallax was developed using LÖVE 11.3, but may work on earlier versions.
 
 ## Quick Start
 
