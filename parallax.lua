@@ -50,14 +50,13 @@ function parallax:draw_tiled(x, y, image)
         x = start_x
         repeat
             love.graphics.draw(image, x, y)
+            count = count + 1
             -- DEBUG: Indicate where image starts to help debug gaps/mismatch.
             --~ love.graphics.rectangle('fill', x, y, 50, max_y)
             --~ love.graphics.rectangle('fill', x, y, max_x, 50)
             x = x + art_pixels_x
-            count = count + 1
         until x > max_x
         y = y + art_pixels_y
-        count = count + 1
     until y > max_y
 
     --~ -- DEBUG: Show screen left/right to show we can draw without moving.
