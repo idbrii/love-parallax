@@ -1,3 +1,7 @@
+[![Lint status
+](https://github.com/idbrii/love-parallax/actions/workflows/luacheck.yml/badge.svg?branch=main)
+](https://github.com/idbrii/love-parallax/actions?query=branch%3Amain)
+
 # parallax
 
 parallax is a camera utility library for [LÖVE](https://love2d.org) that
