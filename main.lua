@@ -5,7 +5,7 @@ local gamera = require('gamera')
 local parallax = require('parallax')
 
 local camera
-local world_dimensions = {1600,1200}
+local world_dimensions = {9000,1200}
 local has_gravity = false
 local making_waves = true
 local layers = {}
@@ -63,10 +63,11 @@ function love.load()
     camera = gamera.new(0,0,unpack(world_dimensions))
     layers.near = parallax.new(camera, 1.5)
     layers.far = parallax.new(camera, 0.5)
-    layers.bg = parallax.new(camera, 0.25)
+    layers.bg = parallax.new(camera, 1, 0.25)
     layers.bg_data = {
         enabled = true,
-        img = love.graphics.newImage("assets/bg-seamless-icecream.jpg"),
+        img_xy = love.graphics.newImage("assets/bg-seamless-icecream.jpg"),
+        img_x = love.graphics.newImage("assets/bg-sunset.jpg"),
     }
 end
 
@@ -187,8 +188,15 @@ local function draw_bg_img()
     end
     -- To fine tune your background image positioning, adjust x,y.
     -- Here, we offset image to align with edge of world.
-    local x,y = 90,380
-    layers.bg_data.count = layers.bg:draw_tiled(x,y, layers.bg_data.img)
+    if has_gravity then
+        love.graphics.clear(0.60, 0.55, 0.41, 1)
+        local x,y = 0, 45
+        love.graphics.setColor(1,1,1,1)
+        layers.bg_data.count = layers.bg:draw_tiled_single_axis(x,y, layers.bg_data.img_x, "x")
+    else
+        local x,y = 90,380
+        layers.bg_data.count = layers.bg:draw_tiled_xy(x,y, layers.bg_data.img_xy)
+    end
 end
 
 local function draw_all(l,t,w,h)
