@@ -121,7 +121,7 @@ how the layer is displayed.
 - `dx, dy`: _numbers_. Increment the offset by these values.
 
 
-### layer:draw_tiled(x, y, image)
+### layer:draw_tiled_xy(x, y, image)
 
 Draw an image (or Canvas or Video) tiled using a minimal number of draws. Uses
 inverseTransformPoint so transformations from your camera should ensure only
@@ -129,6 +129,18 @@ visible tiles are drawn.
 
 - `x, y`: _numbers_. Tune the positioning of the image.
 - `image`: _Drawable_. A drawable (Image, Canvas) that provides getDimensions to draw tiled.
+
+- returns: _number_. The number of times the image was drawn.
+
+
+### layer:draw_tiled_single_axis(x, y, image, axis)
+
+Draw an image (or Canvas or Video) tiled using a minimal number of draws and
+only along a single axis. See also draw_tiled_xy.
+
+- `x, y`: _numbers_. Tune the positioning of the image.
+- `image`: _Drawable_. A drawable (Image, Canvas) that provides getDimensions to draw tiled.
+- `axis`: _string_. Either `x` to tile horizontally or `y` to tile vertically.
 
 - returns: _number_. The number of times the image was drawn.
 
